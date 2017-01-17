@@ -1,6 +1,8 @@
+package org.derekmorr
+
 import org.scalactic.TypeCheckedTripleEquals
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest._
+import org.scalatest.prop.GeneratorDrivenPropertyChecks
 
 /**
   * Base class for tests.

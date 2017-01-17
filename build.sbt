@@ -1,4 +1,4 @@
-name := "scala-skeleton"
+name := "refined-playground"
 
 version := "1.0"
 
@@ -8,9 +8,10 @@ lazy val root = (project in file("."))
 
 libraryDependencies ++= {
   Seq(
+    "com.google.guava"    %  "guava"            % "21.0"    % Compile,
     "eu.timepit"          %% "refined"          % "0.6.2"   % Compile,
     "eu.timepit"          %% "refined-scodec"   % "0.6.2"   % Compile,
-    "org.scalaz"          %% "scalaz-core"    	% "7.3.1"   % Compile,
+    "org.scalaz"          %% "scalaz-core"    	% "7.2.8"   % Compile,
     "org.scalacheck"      %% "scalacheck"     	% "1.13.4"  % Test,
     "org.scalatest"       %% "scalatest"      	% "3.0.1"   % Test,
     "org.pegdown"         %  "pegdown"        	% "1.6.0"   % Test,
