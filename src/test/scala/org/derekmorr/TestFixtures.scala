@@ -10,7 +10,7 @@ import eu.timepit.refined.types.net._
 import eu.timepit.refined.util.string._
 import org.derekmorr.net.net.IP
 import org.derekmorr.types._
-import org.derekmorr.types.util.{dns, ip}
+import org.derekmorr.types.util.{dns, ip, safe}
 
 
 object TestFixtures {
@@ -55,5 +55,8 @@ object TestFixtures {
   val u: UUID = uuid("9adc9444-1cb6-464d-a4d4-03b484aa49ca")
 
   val h = dns("redhat.psu.edu")
-  val notH = dns("lkjhlkjhlkjhlkjh`````;;")
+  //val notH = dns("lkjhlkjhlkjhlkjh`````;;")
+
+  val userId = safe("abc123")
+  //val notOK = safe("'; rm -rf /")
 }

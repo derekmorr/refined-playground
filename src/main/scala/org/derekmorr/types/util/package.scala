@@ -14,5 +14,5 @@ package object util {
     InternetDomainName.from(s.value)
 
   def safe(s: String Refined SafeStringRegex): SafeString =
-    ???
+    s
 }
