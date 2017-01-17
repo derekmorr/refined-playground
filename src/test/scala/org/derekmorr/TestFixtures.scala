@@ -10,7 +10,7 @@ import eu.timepit.refined.types.net._
 import eu.timepit.refined.util.string._
 import org.derekmorr.net.net.IP
 import org.derekmorr.types._
-import org.derekmorr.types.util.ip
+import org.derekmorr.types.util.{dns, ip}
 
 
 object TestFixtures {
@@ -44,14 +44,16 @@ object TestFixtures {
 
   // runtime:
   val v4loopback = refineV[IP]("127.0.0.1")
-  val thingy = ip(v4loopback.right.get)
+  val thingy: InetAddress = ip(v4loopback.right.get)
 
   // compile-time
-  val v4Loopback2 = ip("127.0.0.1")
+  val v4Loopback2: InetAddress = ip("127.0.0.1")
   val v6Loopback: InetAddress = ip("::1")
 
   //val noOk = ip("999.999.999.999")
 
-
   val u: UUID = uuid("9adc9444-1cb6-464d-a4d4-03b484aa49ca")
+
+  val h = dns("redhat.psu.edu")
+  val notH = dns("lkjhlkjhlkjhlkjh`````;;")
 }
