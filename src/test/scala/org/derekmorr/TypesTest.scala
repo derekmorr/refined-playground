@@ -1,7 +1,7 @@
 package org.derekmorr
 
 import eu.timepit.refined.auto._
-import org.derekmorr.types.util.{dns, ip, safe}
+import org.derekmorr.types.util.{dns, ip, safe, uint}
 
 class TypesTest extends BaseTest {
 
@@ -16,7 +16,11 @@ class TypesTest extends BaseTest {
         }
 
         "it's DNS" in {
-            """dns("jjjj.,<>")""" mustNot compile
+            """val noDns = dns("jjjj.,<>")""" mustNot compile
+        }
+
+        "it's an unsigned integer" in {
+            """val noInt = uint("hello")""" mustNot compile
         }
     }
 
@@ -31,6 +35,11 @@ class TypesTest extends BaseTest {
 
         "it's a DNS name" in {
             """val hostname = dns("foo.bar.org.blah")""" must compile
+        }
+
+        "it's an unsigned integer" in {
+            // maxint + 1
+            """val j = uint("2147483648")""" must compile
         }
     }
 
