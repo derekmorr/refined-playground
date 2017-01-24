@@ -1,16 +1,6 @@
 package org.derekmorr
 
-import eu.timepit.refined.numeric.Positive
-import java.net.{InetAddress, URL}
-import java.util.UUID
-
-import eu.timepit.refined._
 import eu.timepit.refined.auto._
-import eu.timepit.refined.collection.NonEmpty
-import eu.timepit.refined.types.net._
-import eu.timepit.refined.util.string._
-import org.derekmorr.net.net.IP
-import org.derekmorr.types._
 import org.derekmorr.types.util.{dns, ip, safe}
 
 class TypesTest extends BaseTest {
