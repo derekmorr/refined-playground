@@ -5,8 +5,8 @@ import java.net.InetAddress
 import com.google.common.primitives.UnsignedInteger
 import com.google.common.net.{InetAddresses, InternetDomainName}
 import eu.timepit.refined.api.Refined
-import org.derekmorr.math.math.UInt
 import org.derekmorr.net.net.{DNS, IP}
+import org.derekmorr.primitives.primitives.UInt
 
 package object util {
   def ip(s: String Refined IP): InetAddress =
