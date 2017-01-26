@@ -1,5 +1,9 @@
 package org.derekmorr
 
+import eu.timepit.refined.auto._
+import org.derekmorr.types.VlanId
+import org.derekmorr.types.util.{dns, ip, safe, uint}
+
 class TypesTest extends BaseTest {
 
 
@@ -19,6 +23,10 @@ class TypesTest extends BaseTest {
     "it's an unsigned integer" in {
       """val noInt = uint("hello")""" mustNot compile
     }
+
+    "it's a vlan id" in {
+      """val noVlan: VlanId = 9999""" mustNot compile
+    }
   }
 
   "Compile valid types" when {
@@ -37,6 +45,10 @@ class TypesTest extends BaseTest {
     "it's an unsigned integer" in {
       // maxint + 1
       """val j = uint("2147483648")""" must compile
+    }
+
+    "it's a vlan id" in {
+      """val vlan: VlanId = 137""" must compile
     }
   }
 
