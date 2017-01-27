@@ -1,6 +1,6 @@
 package org.derekmorr
 
-import java.net.{InetAddress, URL}
+import java.net.{Inet4Address, InetAddress, URL}
 import java.util.UUID
 
 import eu.timepit.refined._
@@ -10,7 +10,7 @@ import eu.timepit.refined.types.net._
 import eu.timepit.refined.util.string._
 import org.derekmorr.net.net.IP
 import org.derekmorr.types._
-import org.derekmorr.types.util.{dns, ip, safe}
+import org.derekmorr.types.util.{dns, ip, ipv4, ipv6, safe}
 
 
 object TestFixtures {
@@ -59,4 +59,9 @@ object TestFixtures {
 
   val userId = safe("abc123")
   //val notOK = safe("'; rm -rf /")
+
+  val v4 = ipv4("127.0.0.1")
+  val v6 = ipv6("2001:db8::f00")
+
+  //val notV4: Inet4Address = ipv4("2001:db8::f00")
 }
