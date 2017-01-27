@@ -16,6 +16,14 @@ class TypesTest extends BaseTest {
       """val nope = ipv6("2001:db8::hello")""" mustNot compile
     }
 
+    "it's an IPv4 address but we requested ipv6" in {
+      """val nope = ipv6("192.168.0.1")""" mustNot compile
+    }
+
+    "it's an IPv6 address, but we requested IPv4" in {
+      """val nope = ipv4("2001:db8::f00")""" mustNot compile
+    }
+
     "it's DNS" in {
       """val noDns = dns("jjjj.,<>")""" mustNot compile
     }
