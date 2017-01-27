@@ -27,6 +27,10 @@ class TypesTest extends BaseTest {
     "it's a vlan id" in {
       """val noVlan: VlanId = 9999""" mustNot compile
     }
+
+    "it's a safe string" in {
+      """val notSafe: = safe("'; rm -rf /")""" mustNot compile
+    }
   }
 
   "Compile valid types" when {
@@ -49,6 +53,10 @@ class TypesTest extends BaseTest {
 
     "it's a vlan id" in {
       """val vlan: VlanId = 137""" must compile
+    }
+
+    "it's a safe string" in {
+      """val safeStr = safe("this is (a safe) string1234")""" must compile
     }
   }
 
